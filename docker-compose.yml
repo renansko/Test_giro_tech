@@ -1,0 +1,34 @@
+
+version: "3.9"
+
+services:
+  database: #ESSE É O NOME DO SERVICE QUE DEVE ESTAR NO ARQUIVO DE CRIAÇÃO DE CONEXÃO
+    image: postgres
+    container_name: databa_sco
+    restart: always
+    ports: 
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=12345
+      - POSTGRES_DB=school
+    volumes:
+      - pgdata:/data/postgres
+
+  app:
+    build: .
+    container_name: school
+    restart: always
+    ports: 
+      - 2222:2222
+      - 9229:9229 
+    volumes: 
+      - .:/usr/sco
+    links: 
+      - database
+    depends_on:
+      - database
+
+volumes:
+  pgdata:
+    driver: local

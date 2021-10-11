@@ -1,5 +1,13 @@
 import express from "express";
 
+import { router } from "./routes";
+
+import "./database";
+
 const app = express();
 
-app.listen(2222, () => console.log("server is running"))
+app.use(express.json());
+
+app.use(router);
+
+app.listen(2222, () => console.log("server is running!"));

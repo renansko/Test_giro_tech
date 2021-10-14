@@ -1,16 +1,16 @@
 import { Response, Request } from "express";
+import { container } from "tsyringe";
 
-import { Estudante } from "../../entities/estudante";
 import { CreateEstudanteUseCase } from "./CreateEstudanteUseCase";
 
 class CreateEstudanteController {
-  constructor(private createEstudanteUseCase: CreateEstudanteUseCase) {}
-
   async handle(request: Request, response: Response): Promise<Response> {
     const { name } = request.body;
 
+    const createEstudanteUseCase = container.resolve(CreateEstudanteUseCase);
+
     try {
-      const disciplina = await this.createEstudanteUseCase.execute({ name });
+      const disciplina = await createEstudanteUseCase.execute({ name });
       return response.status(201).json(disciplina);
     } catch (err) {
       return response.status(400).json({ error: err.message });

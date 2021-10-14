@@ -1,3 +1,5 @@
+import { inject, injectable } from "tsyringe";
+
 import { Disciplina } from "../../entities/diciplina";
 import { DisciplinaRepository } from "../../repositories/implementations/DiciplinaRepository";
 
@@ -5,8 +7,12 @@ interface IRequest {
   name: string;
 }
 
+@injectable()
 class CreateDisciplinaUseCase {
-  constructor(private disciplinaRepository: DisciplinaRepository) {}
+  constructor(
+    @inject("DisciplinaRepository")
+    private disciplinaRepository: DisciplinaRepository
+  ) {}
 
   async execute({ name }: IRequest): Promise<Disciplina> {
     const disciplinaAlreadyExists = await this.disciplinaRepository.findByName(

@@ -1,17 +1,17 @@
-import { DisciplinaRepository } from "../../repositories/implementations/DiciplinaRepository";
-import { CreateDisciplinaController } from "./CreateDisciplinaController";
-import { CreateDisciplinaUseCase } from "./CreateDisciplinaUseCase";
+// import { DisciplinaRepository } from "../../repositories/implementations/DiciplinaRepository";
+// import { CreateDisciplinaController } from "./CreateDisciplinaController";
+// import { CreateDisciplinaUseCase } from "./CreateDisciplinaUseCase";
 
-export default (): CreateDisciplinaController => {
-  const disciplinaRepository = new DisciplinaRepository();
+// export default (): CreateDisciplinaController => {
+//   const disciplinaRepository = new DisciplinaRepository();
 
-  const createDisciplinaUseCase = new CreateDisciplinaUseCase(
-    disciplinaRepository
-  );
+//   const createDisciplinaUseCase = new CreateDisciplinaUseCase(
+//     disciplinaRepository
+//   );
 
-  const createDisciplinaController = new CreateDisciplinaController(
-    createDisciplinaUseCase
-  );
+//   const createDisciplinaController = new CreateDisciplinaController(
+//     createDisciplinaUseCase
+//   );
 
-  return createDisciplinaController;
-};
+//   return createDisciplinaController;
+// };

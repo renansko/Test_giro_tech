@@ -1,15 +1,15 @@
 import { Router } from "express";
 
-import createProfessorController from "../modules/useCases/createProfessores";
+import { CreateProfessorController } from "../modules/useCases/createProfessores/CreateProfessoresController";
 // eslint-disable-next-line import/no-extraneous-dependencies
 
 const professorRoute = Router();
 
+const createProfessorController = new CreateProfessorController();
+
 // rota para coleta de dados
 
-professorRoute.post("/", (request, response) => {
-  createProfessorController().handle(request, response);
-});
+professorRoute.post("/", createProfessorController.handle);
 
 // Rotas não devem ter a responsabilidade de enviar dados para o Banco de Dados
 

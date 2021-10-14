@@ -1,3 +1,5 @@
+import { inject, injectable } from "tsyringe";
+
 import { professorRoute } from "../../../routes/professores.routes";
 import { Professores } from "../../entities/professores";
 import { ProfessoresRepository } from "../../repositories/implementations/ProfessoresRepository";
@@ -6,8 +8,12 @@ interface IRequest {
   name: string;
 }
 
+@injectable()
 class CreateProfessorUseCase {
-  constructor(private professoresRepository: ProfessoresRepository) {}
+  constructor(
+    @inject("EstudantesRepository")
+    private professoresRepository: ProfessoresRepository
+  ) {}
 
   async execute({ name }: IRequest): Promise<Professores> {
     const professorAlreadyExist = await this.professoresRepository.findByName(

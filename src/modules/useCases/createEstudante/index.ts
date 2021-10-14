@@ -1,16 +1,16 @@
-import { EstudantesRepository } from "../../repositories/implementations/EstudanteRepository";
-import { CreateEstudanteController } from "./CreateEstudanteController";
-import { CreateEstudanteUseCase } from "./CreateEstudanteUseCase";
+// import { EstudantesRepository } from "../../repositories/implementations/EstudanteRepository";
+// import { CreateEstudanteController } from "./CreateEstudanteController";
+// import { CreateEstudanteUseCase } from "./CreateEstudanteUseCase";
 
-export default (): CreateEstudanteController => {
-  const estudanteRepository = new EstudantesRepository();
+// export default (): CreateEstudanteController => {
+//   const estudanteRepository = new EstudantesRepository();
 
-  const createEstudanteUseCase = new CreateEstudanteUseCase(
-    estudanteRepository
-  );
+//   const createEstudanteUseCase = new CreateEstudanteUseCase(
+//     estudanteRepository
+//   );
 
-  const createEstudanteController = new CreateEstudanteController(
-    createEstudanteUseCase
-  );
-  return createEstudanteController;
-};
+//   const createEstudanteController = new CreateEstudanteController(
+//     createEstudanteUseCase
+//   );
+//   return createEstudanteController;
+// };

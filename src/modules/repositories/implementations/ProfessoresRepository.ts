@@ -1,6 +1,5 @@
 import { getRepository, Repository } from "typeorm";
 
-import { professorRoute } from "../../../routes/professores.routes";
 import { Professores } from "../../entities/professores";
 import {
   ICreateProfessoresDTO,

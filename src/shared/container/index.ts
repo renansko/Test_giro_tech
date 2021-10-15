@@ -5,7 +5,11 @@ import { IEstudantesRepository } from "../../modules/repositories/IEstudantesRep
 import { DisciplinaRepository } from "../../modules/repositories/implementations/DiciplinaRepository";
 import { EstudantesRepository } from "../../modules/repositories/implementations/EstudanteRepository";
 import { ProfessoresRepository } from "../../modules/repositories/implementations/ProfessoresRepository";
+import { TurmaAlunoRepository } from "../../modules/repositories/implementations/TurmaAlunoRepository";
+import { TurmaRepository } from "../../modules/repositories/implementations/TurmaRepository";
 import { IProfessoresRepository } from "../../modules/repositories/IProfessoresRepository";
+import { ITurmaAlunoRepository } from "../../modules/repositories/ITurmaAlunoRepository";
+import { ITurmaRepository } from "../../modules/repositories/ITurmaRepository";
 
 container.registerSingleton<IEstudantesRepository>(
   "EstudantesRepository",
@@ -20,4 +24,14 @@ container.registerSingleton<IProfessoresRepository>(
 container.registerSingleton<IDisciplinaRepository>(
   "DisciplinaRepository",
   DisciplinaRepository
+);
+
+container.registerSingleton<ITurmaRepository>(
+  "TurmaRepository",
+  TurmaRepository
+);
+
+container.registerSingleton<ITurmaAlunoRepository>(
+  "turmaAlunoRepository",
+  TurmaAlunoRepository
 );

@@ -1,6 +1,5 @@
 import { inject, injectable } from "tsyringe";
 
-import { professorRoute } from "../../../routes/professores.routes";
 import { Professores } from "../../entities/professores";
 import { ProfessoresRepository } from "../../repositories/implementations/ProfessoresRepository";
 
@@ -11,7 +10,7 @@ interface IRequest {
 @injectable()
 class CreateProfessorUseCase {
   constructor(
-    @inject("EstudantesRepository")
+    @inject("ProfessoresRepository")
     private professoresRepository: ProfessoresRepository
   ) {}
 

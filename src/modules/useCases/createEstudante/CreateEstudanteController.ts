@@ -10,8 +10,8 @@ class CreateEstudanteController {
     const createEstudanteUseCase = container.resolve(CreateEstudanteUseCase);
 
     try {
-      const disciplina = await createEstudanteUseCase.execute({ name });
-      return response.status(201).json(disciplina);
+      const estudante = await createEstudanteUseCase.execute({ name });
+      return response.status(201).json(estudante);
     } catch (err) {
       return response.status(400).json({ error: err.message });
     }

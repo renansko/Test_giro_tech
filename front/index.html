@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EitaFrontBao</title>
+</head>
+
+<body>
+    <main>
+        <h1>USAR O INSOMINIA</h1>
+        <form role="form" class="forms">
+            <label for="name">Nome do Aluno <input type="text" class="aluno"> </label>
+            <label for="name">Nome do Professor <input type="text" class="professor"> </label>
+            <label for="name" >Disciplina<input type="text"> </label>
+            <button > Cadastrar </button>
+        </form> 
+        <div class="itens">
+            <p class="alunoId"></p>
+            <p class="professorId"></p>
+            <p class="disciplinaId"></p>
+        </div>
+        <form action="" role="form">
+
+        </form> 
+            <div>
+                <label for="name" >Criar Turma<input placeholder="Id do Aluno" type="text"> </label>
+            <button> Cadastrar </button>
+            </div>
+        <div class="resposta"> </div>
+        <details>
+            <p>Não tankei</p>
+            <details  >
+                <summary>E digo mais</summary>
+                <p>kkkkkkkFront</p>
+            </details>
+        </details>
+        
+    </main>
+
+    <script type="text/javascript">
+       const formElement = document.querySelector(".forms");
+       const containerResposta = document.querySelector(".resposta");
+       const containerItens= document.querySelector(".itens");
+       const containerAlunoId = document.querySelector(".alunoId");
+       const containerProfessorId = document.querySelector(".professorId");
+       const containerDisciplinaId = document.querySelector(".disciplinaId");
+       
+
+        formElement.addEventListener('onSubmit', (evt) => {
+            return console.log(evt)
+    })
+
+       async function postAlunoNome() {
+        
+        const res = await fetch('http://localhost:2222/aluno', {
+            method: "POST",
+            body: JSON.stringify({name: document.getElementsByClassName('aluno')}),
+        })
+        return containerAlunoId.innerHTML = JSON.stringify(res, 2, nul)
+        
+    }
+    postAlunoNome()
+
+    </script>
+</body>
+</html>
